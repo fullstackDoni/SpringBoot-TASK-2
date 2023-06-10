@@ -2,6 +2,7 @@ package kz.bitlab.techorda.springtasksecond.controller;
 
 import kz.bitlab.techorda.springtasksecond.models.ApplicationRequest;
 import kz.bitlab.techorda.springtasksecond.repository.AppReq;
+import kz.bitlab.techorda.springtasksecond.service.AppReqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class HomeController {
         model.addAttribute("appreq",applicationRequests);
         return "index";
     }
-    @GetMapping("/AddReq")
+    @GetMapping("/add")
     public String addRequest(Model model) {
         List<ApplicationRequest> applicationRequests = appReq.findAll();
         model.addAttribute("appreq", applicationRequests);
@@ -45,12 +46,17 @@ public class HomeController {
         model.addAttribute("request", request);
         return "details";
     }
-    @PostMapping("/update")
-    public String update(ApplicationRequest request){
-        if(request!=null){
-            request.setHandled(false);
-            request.save(request);
-        }
-        return "redirect:/";
-    }
+//    @PostMapping("/update")
+//    public String update(ApplicationRequest request){
+//        if(request!=null){
+//            request.setHandled(false);
+//            AppReqService.save(request);
+//        }
+//        return "redirect:/";
+//    }
+//    @PostMapping("delete/{requestId}")
+//    public String delete(@PathVariable Long requestId){
+//        AppReqService.delete(requestId);
+//        return "redirect:/";
+//    }
 }

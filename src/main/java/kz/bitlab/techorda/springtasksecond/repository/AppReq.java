@@ -4,6 +4,5 @@ import kz.bitlab.techorda.springtasksecond.models.ApplicationRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public interface AppReq extends JpaRepository<ApplicationRequest,Long> {
 }
